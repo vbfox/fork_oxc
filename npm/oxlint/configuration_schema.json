@@ -2968,6 +2968,9 @@
             }
           ]
         },
+        "import/no-relative-packages": {
+          "$ref": "#/definitions/RuleNoConfig"
+        },
         "import/no-relative-parent-imports": {
           "$ref": "#/definitions/RuleNoConfig"
         },

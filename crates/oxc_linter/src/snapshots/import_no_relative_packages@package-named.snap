@@ -1,0 +1,10 @@
+---
+source: crates/oxc_linter/src/tester.rs
+---
+
+  ⚠ import(no-relative-packages): Relative import from another package is not allowed
+   ╭─[package-named/index.js:1:17]
+ 1 │ import bar from "../bar"
+   ·                 ────────
+   ╰────
+  help: Use `oxc/crates/oxc_linter/fixtures/import/bar` instead of `../bar`

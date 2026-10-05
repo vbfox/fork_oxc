@@ -953,6 +953,7 @@ export interface DummyRuleMap {
   "import/no-named-export"?: RuleNoConfig;
   "import/no-namespace"?: RuleNoConfig | [AllowWarnDeny, NoNamespaceConfig];
   "import/no-nodejs-modules"?: RuleNoConfig | [AllowWarnDeny, NoNodejsModulesConfig];
+  "import/no-relative-packages"?: RuleNoConfig;
   "import/no-relative-parent-imports"?: RuleNoConfig;
   "import/no-self-import"?: RuleNoConfig;
   "import/no-unassigned-import"?: RuleNoConfig | [AllowWarnDeny, NoUnassignedImportConfig];

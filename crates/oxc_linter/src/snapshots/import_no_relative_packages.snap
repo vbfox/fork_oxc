@@ -1,0 +1,38 @@
+---
+source: crates/oxc_linter/src/tester.rs
+---
+
+  ⚠ import(no-relative-packages): Relative import from another package is not allowed
+   ╭─[package/index.js:1:17]
+ 1 │ import foo from "../package-named"
+   ·                 ──────────────────
+   ╰────
+  help: Use `package-named` instead of `../package-named`
+
+  ⚠ import(no-relative-packages): Relative import from another package is not allowed
+   ╭─[package/index.js:1:17]
+ 1 │ import foo from "../package-scoped"
+   ·                 ───────────────────
+   ╰────
+  help: Use `@scope/package-named` instead of `../package-scoped`
+
+  ⚠ import(no-relative-packages): Relative import from another package is not allowed
+   ╭─[package/index.js:1:17]
+ 1 │ import foo from "../package-named/index.js"
+   ·                 ───────────────────────────
+   ╰────
+  help: Use `package-named/index.js` instead of `../package-named/index.js`
+
+  ⚠ import(no-relative-packages): Relative import from another package is not allowed
+   ╭─[package/index.js:1:25]
+ 1 │ export { default } from "../package-named"
+   ·                         ──────────────────
+   ╰────
+  help: Use `package-named` instead of `../package-named`
+
+  ⚠ import(no-relative-packages): Relative import from another package is not allowed
+   ╭─[package/index.js:1:15]
+ 1 │ export * from "../package-scoped/index"
+   ·               ─────────────────────────
+   ╰────
+  help: Use `@scope/package-named/index` instead of `../package-scoped/index`

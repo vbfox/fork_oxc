@@ -208,6 +208,7 @@ import/no-named-default                                    |    103
 import/no-named-export                                     |     68
 import/no-namespace                                        |      7
 import/no-nodejs-modules                                   |  62734
+import/no-relative-packages                                |      7
 import/no-relative-parent-imports                          |  62732
 import/no-self-import                                      |      7
 import/no-unassigned-import                                |  24905

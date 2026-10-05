@@ -178,6 +178,11 @@ impl RuleRunner for crate::rules::import::no_nodejs_modules::NoNodejsModules {
     const RUN_FUNCTIONS: RuleRunFunctionsImplemented = RuleRunFunctionsImplemented::Run;
 }
 
+impl RuleRunner for crate::rules::import::no_relative_packages::NoRelativePackages {
+    const NODE_TYPES: Option<&AstTypesBitset> = None;
+    const RUN_FUNCTIONS: RuleRunFunctionsImplemented = RuleRunFunctionsImplemented::RunOnce;
+}
+
 impl RuleRunner for crate::rules::import::no_relative_parent_imports::NoRelativeParentImports {
     const NODE_TYPES: Option<&AstTypesBitset> = Some(&AstTypesBitset::from_types(&[
         AstType::CallExpression,
