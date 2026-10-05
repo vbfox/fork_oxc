@@ -80,9 +80,8 @@ declare_oxc_lint!(
 impl Rule for NoRelativePackages {
     fn run_once(&self, ctx: &LintContext<'_>) {
         let module_record = ctx.module_record();
-        let Some(context_pkg) = find_named_package(&module_record.resolved_absolute_path) else {
-            return;
-        };
+        // Only look up the current file's package once a relative import resolved.
+        let context_pkg = std::cell::OnceCell::new();
 
         for (import_path, requested_modules) in &module_record.requested_modules {
             let import_path = import_path.as_str();
@@ -94,6 +93,11 @@ impl Rule for NoRelativePackages {
             };
             let resolved_import = &remote_module_record.resolved_absolute_path;
             let Some(import_pkg) = find_named_package(resolved_import) else {
+                continue;
+            };
+            let Some(context_pkg) = context_pkg
+                .get_or_init(|| find_named_package(&module_record.resolved_absolute_path))
+            else {
                 continue;
             };
             if import_pkg.name == context_pkg.name {
